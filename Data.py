@@ -1,14 +1,6 @@
 
 # In[ ]:
 import pandas as pd
-import seaborn as seabpd
-
-
-urlGlabalConfirmed = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
-urlGlabalRecovered = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv"
-urlGlabalDeaths = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv"
-
-countries = ['Date', 'France', 'India']
 
 
 class Data:
@@ -56,15 +48,3 @@ class Data:
 
         pd.concat([f1, f2, f3], axis=1).to_csv('Merged.csv')
         print('Saved: Merged.csv')
-
-
-GlabalConfirmed = Data(urlGlabalConfirmed, countries, 'GlabalConfirmed.csv')
-GlabalConfirmed.processData('Total_Confirmed_', 'Daily_Confirmed_')
-
-GlabalRecovered = Data(urlGlabalRecovered, countries, 'GlabalRecovered.csv')
-GlabalRecovered.processData('Total_Recovered_', 'Daily_Recovered_')
-
-GlabalDeaths = Data(urlGlabalDeaths, countries, 'GlabalDeath.csv')
-GlabalDeaths.processData('Total_Death_', 'Daily_Death_')
-
-Data.merge()
